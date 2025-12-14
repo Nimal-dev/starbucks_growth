@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Growth Intelligence</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="glass-container">
+        <!-- Navigation -->
+        <nav>
+            <div class="logo">Starbucks<span class="highlight">Intelligence</span></div>
+            <div class="nav-links">
+                <a href="#overview" class="active">Overview</a>
+                <a href="#story">The Story</a>
+                <a href="#analysis">Deep Dive</a>
+                <a href="#recommendations">Strategy</a>
+                <a href="#technical">Technical</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header id="overview">
+            <div class="hero-content">
+                <h1>Unlocking the Next <br><span class="gradient-text">Starbucks</span> Markets</h1>
+                <p>Data-driven expansion analysis identifying high-leverage opportunities in the Global South.</p>
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <h3>14,200+</h3>
+                        <small>Cities Analyzed</small>
+                    </div>
+                    <div class="stat-card">
+                        <h3>35,000+</h3>
+                        <small>Stores Mapped</small>
+                    </div>
+                    <div class="stat-card highlight-card">
+                        <h3>$4.2B</h3>
+                        <small>Est. Market Gap</small>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- The Story Section -->
+        <section id="story" class="story-section">
+            <div class="story-content">
+                <h2>The Story Behind the Data</h2>
+                <div class="story-grid">
+                    <div class="story-card">
+                        <h3>The Business Question</h3>
+                        <p><strong>Where should Starbucks expand next to capture the next 50 million customers?</strong>
+                        </p>
+                        <p>With North American and European markets nearing saturation, the next phase of hyper-growth
+                            lies in unserved megacities in the Global South. This analysis identifies specific locations
+                            where population density, economic trajectory, and lack of competition converge.</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>Methodology</h3>
+                        <p>We cross-referenced the <strong>World Cities Database</strong> (14,000+ cities) against the
+                            complete <strong>Starbucks Global Store Directory</strong>. By filtering for populations >1M
+                            and store count == 0, we utilized a "gap analysis" technique to isolate high-value
+                            "Starbucks" opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section id="analysis" class="dashboard-grid">
+            <div class="chart-container large">
+                <h2>Top 10 High-Potential "Starbucks" Cities</h2>
+                <p class="subtitle">Megacities (>5M pop) with Zero Starbucks Presence</p>
+                <div class="canvas-container">
+                    <canvas id="topCitiesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container large">
+                <h2>Global Opportunity Map</h2>
+                <p class="subtitle">Geographic distribution of identified high-potential cities.</p>
+                <div class="map-comparison-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="map-wrapper">
+                        <h4 style="text-align: center; color: var(--sb-green); margin-bottom: 0.5rem;">Current Footprint
+                        </h4>
+                        <div class="canvas-container geo-map">
+                            <canvas id="existingMapChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="map-wrapper">
+                        <h4 style="text-align: center; color: #ff4081; margin-bottom: 0.5rem;">Growth Opportunities</h4>
+                        <div class="canvas-container geo-map">
+                            <canvas id="opportunityMapChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>Unserved Population by Country</h2>
+                <p class="subtitle">Where are the most potential customers located?</p>
+                <div class="canvas-container">
+                    <canvas id="countryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>City Size Distribution</h2>
+                <p class="subtitle">Frequency of opportunity by population bracket.</p>
+                <div class="canvas-container">
+                    <canvas id="distChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>Population vs. Saturation</h2>
+                <p class="subtitle">Identifying outliers with high pop and low store density.</p>
+                <div class="canvas-container">
+                    <canvas id="scatterChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>Opportunity Composition</h2>
+                <p class="subtitle">Breakdown of "Starbucks" cities by region/type.</p>
+                <div class="canvas-container">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container large text-panel">
+                <h2>Key Insights</h2>
+                <div class="insights-content-grid">
+                    <ul class="insights-list">
+                        <li><strong>South Asia & Africa</strong> represent the largest untapped markets.</li>
+                        <li><strong>Dhaka (16.8M)</strong> and <strong>Lagos (15.0M)</strong> are the largest cities
+                            globally without a single store.</li>
+                        <li>Gap Analysis suggests a potential for <strong>500+ locations</strong> in identified top 10
+                            cities alone based on global density averages.</li>
+                    </ul>
+                    <div class="insights-stats">
+                        <div class="mini-stat">
+                            <span class="label">Total Unserved Pop</span>
+                            <span class="value">128M+</span>
+                        </div>
+                        <div class="mini-stat">
+                            <span class="label">Top Opportunity</span>
+                            <span class="value">Dhaka, BD</span>
+                        </div>
+                        <div class="mini-stat">
+                            <span class="label">High-Growth Region</span>
+                            <span class="value">South Asia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section id="recommendations" class="strategy-section">
+            <h2>Strategic Recommendations</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="icon">🚀</div>
+                    <h3>Enter South Asia</h3>
+                    <p>Prioritize Bangladesh and Pakistan via licensing. The demographic dividend in Dhaka and Lahore is
+                        peaking.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="icon">🌍</div>
+                    <h3>Africa Flagship</h3>
+                    <p>Establish iconic presence in Lagos and Kinshasa. Focus on premium locations to build brand
+                        aspiration.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="icon">📈</div>
+                    <h3>Tier 2 China</h3>
+                    <p>Suzhou and Nanyang show population density comparable to Shanghai but lack saturation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expanded Recommendations -->
+        <section class="strategy-details">
+            <div class="details-grid">
+                <div class="detail-card warning">
+                    <h3>⚠️ Limitations & Risks</h3>
+                    <ul>
+                        <li><strong>Data Recency:</strong> Store data is from late 2024; recent closures or openings may
+                            not be reflected.</li>
+                        <li><strong>Economic Volatility:</strong> Target markets like Nigeria and Pakistan face currency
+                            fluctuations that impact ROI.</li>
+                        <li><strong>Supply Chain:</strong> Logistics for fresh coffee beans in these regions require new
+                            infrastructure.</li>
+                    </ul>
+                </div>
+                <div class="detail-card success">
+                    <h3>✅ Next Steps</h3>
+                    <ul>
+                        <li><strong>Phase 1:</strong> On-ground feasibility study in Dhaka and Lagos.</li>
+                        <li><strong>Phase 2:</strong> Pilot "license-only" model to minimize capital risk.</li>
+                        <li><strong>Phase 3:</strong> Establish regional roasting hubs to support the new supply chain.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Documentation -->
+        <section id="technical" class="tech-section">
+            <h2>Technical Documentation</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>Data Sources</h3>
+                    <ul>
+                        <li><strong>World Cities Database:</strong> Used for population, lat/lng, and country code.</li>
+                        <li><strong>Starbucks Store Scraper:</strong> Custom Python script used to map current store
+                            locations.</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h3>Tools & Tech</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> HTML5, Vanilla CSS3 (Glassmorphism), JavaScript (ES6+).</li>
+                        <li><strong>Visualization:</strong> Chart.js for rendering interactive bar, scatter, and map
+                            charts.</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <h3>AI Integration</h3>
+                    <p>This dashboard was co-developed with <strong>Gemini 2.0</strong>. AI was used to:</p>
+                    <ul>
+                        <li>Generate boilerplate HTML/CSS structure.</li>
+                        <li>Debug Chart.js overflow issues.</li>
+                        <li>Synthesize "Biz-speak" for strategic narratives.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+
+            <p>Business Intelligence Project | MSc business Analytics | National College of Ireland</p>
+        </footer>
+    </div>
+
+    <!-- Data & App -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
